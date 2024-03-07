@@ -1,0 +1,1 @@
+g++ main.cpp Camera.cpp CameraController.cpp Application.cpp -std=c++11 -lglad -lglfw3 -ldl -lpthread  -lGL  -lX11  -lXrandr -lXi -o main
