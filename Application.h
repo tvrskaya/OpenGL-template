@@ -1,27 +1,31 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 #include "CameraController.h"
+#include "LayerStack.h"
+#include "Window/Window.h"
+#include "Events/Event.h"
 
 class Application
 {
 public:
-    Application(int screenWidth, int screenHeight, const char* title);
+    Application(int screenWidth = 800, int screenHeight = 600, const char* title = "OpenGL Sandbox");
     //~Application();
 
     void Run();
     void End();
 
+    void PushLayer(Layer* layer);
+    
+
 private:
     void Update(float dt);
-    //void Render();
-
+    void Render();
+    void OnEvent(Event &e);
+    void GuiRender();
 private:
-    GLFWwindow *window;
-    int ScreenWidth;
-    int ScreenHeight;
-
-    CameraController m_CameraController;
-
+    Window* m_Window;
+    LayerStack m_LayerStack;
 };

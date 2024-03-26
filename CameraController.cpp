@@ -25,7 +25,7 @@ void CameraController::OnUpdate(GLFWwindow *window, float dt)
         pos.z -= CameraSpeed * dt;
         m_Camera.SetPosition(pos);
     }
-    if(glfwGetKey(window, GLFW_KEY_W))
+    if(glfwGetKey(window, GLFW_KEY_S))
     {
         glm::vec3 pos = m_Camera.GetPosition();
         pos.z += CameraSpeed * dt;

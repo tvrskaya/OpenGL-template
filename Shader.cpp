@@ -55,6 +55,18 @@ void Shader::SetMatrix4fv(const char* field, glm::mat4 mat)
     glUniformMatrix4fv(matLoc, 1, GL_FALSE, glm::value_ptr(mat));
 }
 
+void Shader::SetVector4fv(const char *field, glm::vec4 vec)
+{
+    int vecLoc = glGetUniformLocation(this->ID, field);
+    glUniform4fv(vecLoc, 1, glm::value_ptr(vec));
+}
+
+void Shader::SetVector3fv(const char *field, glm::vec3 vec)
+{
+    int vecLoc = glGetUniformLocation(this->ID, field);
+    glUniform3fv(vecLoc, 1, glm::value_ptr(vec));
+}
+
 void Shader::shaderLog(unsigned int* obj, const char* target, const char* shaderName)
 {
     int success = 0;
